@@ -9,9 +9,11 @@ function div(n: number, d: number): Optional<number> {
   return new Some(d / n);
 }
 
-let d1 = div(1, 1);
-let d2 = div(1, 1);
-let d3: Optional<number> = d1.bind((d1U) => d2.bind((d2U) => d1U.t + d2U.t));
+const d1 = div(1, 1);
+const d2 = div(1, 1);
+const d3: Optional<number> = d1.bind((d1U: number) =>
+  d2.bind((d2U: number) => new Some(d1U + d2U))
+);
 
 if (d3 instanceof Some) {
   console.log(d3);

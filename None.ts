@@ -5,6 +5,10 @@ export default class None implements Optional<any> {
 
   private constructor() {}
 
+  map(f) {
+    return None.instance;
+  }
+
   bind(f) {
     return None.instance;
   }
